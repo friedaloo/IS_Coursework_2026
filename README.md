@@ -35,23 +35,25 @@ A multi-page static website for EcoMart, an online store selling eco-friendly pr
 - **JavaScript** - Dynamic content updates, form validation, and interactive elements
 
 ## 📂 Project Structure
+```text
 eco-mart/
-├── index.html                 # Home page
-├── blog.html                  # Blog page
-├── products.html              # Products catalog
-├── research.html              # Component comparison page
-├── about.html                 # Team portfolios
-├── contact.html               # Contact form
+├── index.html              # Home page
+├── blog.html               # Blog page
+├── products.html           # Products catalog
+├── research.html           # Component comparison page
+├── about.html              # Team portfolios
+├── contact.html            # Contact form
 ├── css/
-│   ├── main.css               # External CSS (global styles)
-│   └── page-specific.css      # Internal CSS examples
+│   ├── main.css            # External CSS (global styles)
+│   └── page-specific.css   # Internal CSS examples
 ├── js/
-│   ├── main.js                # Navigation/animations
-│   └── form-validation.js     # Form validation logic
+│   ├── main.js             # Navigation/animations
+│   └── form-validation.js  # Form validation logic
 ├── images/
-│   ├── products/              # Product photos
-│   ├── team/                  # Team member photos
-│   └── logo.svg               # Site logo
+│   ├── products/           # Product photos
+│   └── team/               # Team member photos
+└── logo.svg                # Site logo
+```
 
 👥 Team Members
 Arina Puri
