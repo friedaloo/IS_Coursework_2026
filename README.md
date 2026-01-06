@@ -2,7 +2,6 @@
 A humble repository for our coursework
 # 🌱 EcoMart - Sustainable Lifestyle Store
 
-![EcoMart Banner](https://via.placeholder.com/800x200/4CAF50/FFFFFF?text=EcoMart+-+Sustainable+Living)
 
 A multi-page static website for EcoMart, an online store selling eco-friendly products and promoting sustainable living. This project is part of the **CC4057NI/CC4058NI Introduction to Information Systems** coursework at Islington College.
 
