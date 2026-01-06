@@ -56,6 +56,7 @@ eco-mart/
 ```
 
 👥 Team Members
-Arina Puri
-Prasanna Bhandari
-Yathechya Shrestha
+
+-Arina Puri
+-Prasanna Bhandari
+-Yathechya Shrestha
