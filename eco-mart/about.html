@@ -4,66 +4,425 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Us - EcoMart - Meet our team and get in touch">
     <title>About Us - EcoMart</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
+        /* INTERNAL CSS: As required by Marking Criteria 3.2 */
+        /* Main Container */
+        .container {
+            width: 90%;
+            /* Using % instead of rem/em */
+            margin: 0 auto;
+            /* Centers the container */
+            padding: 20px 0;
+            text-align: center;
         }
 
-        .placeholder {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
+        /* Team Section Wrapper */
+        .team-wrapper {
+            width: 100%;
+            /* Clears floats if we were using them, helps with spacing */
+            overflow: hidden;
+        }
+
+        /* Individual Member Card styling */
+        .member-card {
+            /* This is the alternative to Grid/Flexbox */
+            display: inline-block;
+            width: 30%;
+            /* Fits 3 people in a row (30% * 3 = 90%) */
+            vertical-align: top;
+            /* Aligns them to the top */
+            background-color: white;
+            margin: 1%;
+            /* Spacing between cards */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Soft shadow for aesthetics */
+            box-sizing: border-box;
+            /* Ensures padding doesn't break layout */
+            text-align: left;
             padding: 20px;
         }
 
-        .placeholder-content {
-            max-width: 600px;
+        /* Responsive: Stack them on smaller screens */
+        @media screen and (max-width: 800px) {
+            .member-card {
+                width: 90%;
+                display: block;
+                margin: 20px auto;
+            }
         }
 
-        .placeholder h1 {
-            color: #2e8b57;
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        /* Image Styling */
+        .profile-img {
+            width: 100%;
+            height: 250px;
+            background-color: #ddd;
+            /* Placeholder grey */
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
 
-        .placeholder p {
-            color: #666;
-            font-size: 1.2rem;
+        /* Typography within card */
+        .member-card h2 {
+            margin-top: 0;
+            color: #2E8B57;
+            font-size: 22px;
         }
 
-        .back-link {
+        .member-card h3 {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        /* Portfolio Details Sections */
+        .details-section {
+            margin-top: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .details-label {
+            font-weight: bold;
+            color: #2E8B57;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .member-card ul {
+            padding-left: 20px;
+            margin: 5px 0;
+        }
+
+        /* Internal CSS for page-specific styling (Contact Form) */
+        .btn {
             display: inline-block;
-            margin-top: 2rem;
+            background-color: white;
+            color: var(--primary-green);
             padding: 0.8rem 2rem;
-            background-color: #2e8b57;
-            color: white;
-            text-decoration: none;
             border-radius: 50px;
-            transition: background-color 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
         }
 
-        .back-link:hover {
-            background-color: #1b5e20;
+        .btn:hover {
+            background-color: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary-green);
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            background-color: var(--light-green);
+            padding: 5rem 20px;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            width: 100%;
+        }
+
+        .contact-info h3 {
+            color: var(--dark-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details p {
+            margin: 0.8rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-details i {
+            margin-right: 10px;
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-green);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
         }
     </style>
 </head>
 
 <body>
-    <div class="placeholder">
-        <div class="placeholder-content">
-            <h1>👥 About Us Page</h1>
-            <p>This is a placeholder for the About Us page.</p>
-            <p>Navigation is working correctly!</p>
-            <a href="home.html" class="back-link">← Back to Home</a>
-        </div>
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">Eco<span>Mart</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <h1 style="color: #1a5e3a; font-size: 36px; margin-bottom: 10px; text-transform: uppercase;">
+            Meet The EcoMart Team
+        </h1>
+
+        <p>Passionate individuals dedicated to sustainable living.</p>
+        <hr style="width: 50%; border: 1px solid #2E8B57; margin-bottom: 40px;">
+
+        <!-- Team Members Area -->
+        <div class="team-wrapper">
+
+            <!-- MEMBER 1 -->
+            <div class="member-card">
+                <!-- Replace src with your actual images later -->
+                <img src="https://via.placeholder.com/300x250?text=Member+1" alt="Portrait of Member 1"
+                    class="profile-img">
+
+                <h2>Yathechya Shrestha</h2>
+                <h3>Role not decided yet</h3>
+
+                <div class="details-section">
+                    <span class="details-label">Education:</span>
+                    BSc (Hons) Computing, Islington College.
+
+                    <span class="details-label">Technical Skills:</span>
+                    <ul>
+                        <li>HTML, CSS3, JavaScript</li>
+                        <li>System Adminstration and Mass Deployment </li>
+                        <li>Scripting and Automation</li>
+                    </ul>
+
+                    <span class="details-label">Soft Skills:</span>
+                    Problem Solving, Data modelling.
+
+                    <span class="details-label">Certifications:</span>
+                    Aws Web Services Certified .
+                </div>
+            </div>
+
+            <!-- MEMBER 2 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/300x250?text=Member+2" alt="Portrait of Member 2"
+                    class="profile-img">
+
+                <h2>PPRASANNA SINGH BHANDARI</h2>
+                <h3>Business Advisor and Model</h3>
+
+                <div class="details-section">
+                    <span class="details-label">Education:</span>
+                    BSc (Hons) Computing, Islington College.
+
+                    <span class="details-label">Technical Skills:</span>
+                    <ul>
+                        <li>Business Management</li>
+                        <li>Digital content Creation</li>
+                        <li>Audience Engagement</li>
+                    </ul>
+
+                    <span class="details-label">Soft Skills:</span>
+                    Creativity, Leadership.
+
+                    <span class="details-label">Certifications:</span>
+                    ING Skill academy certification.
+                </div>
+            </div>
+
+            <!-- MEMBER 3 -->
+            <div class="member-card">
+                <img src="https://via.placeholder.com/300x250?text=Member+3" alt="Portrait of Member 3"
+                    class="profile-img">
+
+                <h2>Arina Puri</h2>
+                <h3>Research Analyst</h3>
+
+                <div class="details-section">
+                    <span class="details-label">Education:</span>
+                    BSc (Hons) Computing, Islington College.
+
+                    <span class="details-label">Technical Skills:</span>
+                    <ul>
+                        <li>Multi Tasking/li>
+                        <li>Time Management</li>
+                        <li>Problem Solving</li>
+
+                    </ul>
+
+                    <span class="details-label">Soft Skills:</span>
+                    Communication,Critical Thinking, Problem Solving.
+
+                    <span class="details-label">Certifications:</span>
+                    ING Skill academy certification.
+                </div>
+            </div>
+
+        </div> <!-- End Team Wrapper -->
     </div>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <div class="contact-details">
+                    <p><i>📍</i> 123 Green Street, Eco City, EC1 2AB</p>
+                    <p><i>📞</i> +44 20 1234 5678</p>
+                    <p><i>✉️</i> hello@ecomart.sustainability</p>
+                    <p><i>🕒</i> Mon-Fri: 9AM-6PM, Sat: 10AM-4PM</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p>Providing sustainable alternatives for everyday products since 2026. Our mission is to reduce plastic
+                    waste and promote eco-conscious living.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Kitchen & Dining</a></li>
+                    <li><a href="#">Personal Care</a></li>
+                    <li><a href="#">Home & Living</a></li>
+                    <li><a href="#">Travel Accessories</a></li>
+                    <li><a href="#">Eco Cleaning</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 EcoMart. All rights reserved. | Designed with ❤️ for a sustainable future</p>
+            <p id="date-display"></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Form validation
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Get form values
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+
+                    // Validate name
+                    if (name.length < 2) {
+                        alert('Name must be at least 2 characters long');
+                        return;
+                    }
+
+                    // Validate email format
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+
+                    // Validate message length
+                    if (message.length < 10) {
+                        alert('Message must be at least 10 characters long');
+                        return;
+                    }
+
+                    // If validation passes
+                    alert(`Thank you, ${name}! Your message has been sent successfully.`);
+                    contactForm.reset();
+
+                    // In a real implementation, this would submit to a server
+                    console.log('Form submitted with:', { name, email, subject, message });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

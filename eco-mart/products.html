@@ -5,65 +5,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - EcoMart</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-
-        .placeholder {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .placeholder-content {
-            max-width: 600px;
-        }
-
-        .placeholder h1 {
-            color: #2e8b57;
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .placeholder p {
-            color: #666;
-            font-size: 1.2rem;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 0.8rem 2rem;
-            background-color: #2e8b57;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s;
-        }
-
-        .back-link:hover {
-            background-color: #1b5e20;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-    <div class="placeholder">
-        <div class="placeholder-content">
-            <h1>🛍️ Products Page</h1>
-            <p>This is a placeholder for the Products page.</p>
-            <p>Navigation is working correctly!</p>
-            <a href="home.html" class="back-link">← Back to Home</a>
-        </div>
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">Eco<span>Mart</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div style="padding: 100px 20px; text-align: center; min-height: 60vh;">
+        <h1 style="color: #1B5E20;">Products</h1>
+        <p>This page is under construction.</p>
     </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>EcoMart</h3>
+                <p>Providing sustainable alternatives for everyday products since 2026. Our mission is to reduce plastic
+                    waste and promote eco-conscious living.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Kitchen & Dining</a></li>
+                    <li><a href="#">Personal Care</a></li>
+                    <li><a href="#">Home & Living</a></li>
+                    <li><a href="#">Travel Accessories</a></li>
+                    <li><a href="#">Eco Cleaning</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 EcoMart. All rights reserved. | Designed with ❤️ for a sustainable future</p>
+            <p id="date-display"></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

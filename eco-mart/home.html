@@ -6,100 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoMart - Sustainable lifestyle products and eco-friendly living resources">
     <title>EcoMart | Sustainable Lifestyle Products</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.css">
     <style>
-        /* Internal CSS for page-specific styling */
-        :root {
-            --primary-green: #2e8b57;
-            --secondary-green: #3cb371;
-            --light-green: #e8f5e9;
-            --dark-green: #1b5e20;
-            --beige: #f5f5dc;
-            --gray: #757575;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-green);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--dark-green);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary-green);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-green);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
+        /* --- HERO SECTION --- */
         .hero {
-            background: linear-gradient(rgba(46, 139, 87, 0.3), rgba(27, 94, 32, 0.4)), url('images/vibrant_leaf.jpg') center/cover no-repeat;
+            /* Fallback color if image fails */
+            background-color: var(--dark-green);
+            /* Added linear gradient to darken image for text readability */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/vibrant_leaf.jpg') center/cover no-repeat;
             height: 85vh;
             display: flex;
             align-items: center;
@@ -114,259 +28,140 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 56px;
+            margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #f1f1f1;
         }
 
         .btn {
             display: inline-block;
             background-color: white;
             color: var(--primary-green);
-            padding: 0.8rem 2rem;
+            padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid white;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         .btn:hover {
-            background-color: transparent;
+            background-color: var(--primary-green);
             color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* --- PAGE OVERVIEW SECTION --- */
         .page-description {
             max-width: 1200px;
-            margin: 4rem auto;
+            /* Constraints width */
+            margin: 60px auto;
+            /* Centers section */
             padding: 0 20px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 36px;
             color: var(--dark-green);
-            margin-bottom: 3rem;
+            margin-bottom: 50px;
             position: relative;
         }
 
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
             width: 80px;
             height: 4px;
-            background-color: var(--secondary-green);
-            border-radius: 2px;
+            background: var(--secondary-green);
+            margin: 10px auto 0;
         }
 
+        /* --- CARDS GRID --- */
         .pages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Centers cards if they don't fill the row */
+            margin: -15px;
+            /* Offsets the margin on the items */
+        }
+
+        /* This is the Link wrapper, which acts as the card container */
+        .page-card-link {
+            text-decoration: none;
+            color: inherit;
+            /* FLEXIBLE WIDTH CALCULATIONS */
+            width: 30%;
+            /* Approx 1/3 of the screen */
+            min-width: 300px;
+            /* Don't get smaller than this */
+            margin: 15px;
+            /* Creates the gap between cards */
+            display: flex;
+            /* Makes the card expand to fill height */
         }
 
         .page-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-        }
-
-        .page-card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+            width: 100%;
+            /* Fills the link wrapper */
+            display: flex;
+            flex-direction: column;
         }
 
         .page-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
         }
 
         .card-img {
-            height: 200px;
+            height: 180px;
             background-color: var(--light-green);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--dark-green);
-            font-size: 3rem;
+            font-size: 50px;
         }
 
         .card-content {
-            padding: 1.5rem;
+            padding: 25px;
+            text-align: left;
         }
 
         .card-content h3 {
             color: var(--primary-green);
-            margin-bottom: 0.8rem;
+            margin-bottom: 15px;
+            font-size: 22px;
         }
 
-        .contact-section {
-            background-color: var(--light-green);
-            padding: 5rem 20px;
-            margin: 4rem 0;
+
+
+        @media (max-width: 992px) {
+            .page-card-link {
+                width: 45%;
+            }
         }
 
-        .contact-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .contact-info h3 {
-            color: var(--dark-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-
-        .contact-details p {
-            margin: 0.8rem 0;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .contact-details i {
-            margin-right: 10px;
-            color: var(--primary-green);
-            font-size: 1.2rem;
-            min-width: 24px;
-        }
-
-        .contact-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-form label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark-green);
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--primary-green);
-        }
-
-        .contact-form textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 3rem 0 1.5rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            color: var(--secondary-green);
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive design */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 1rem;
-            }
 
-            .nav-links {
-                margin-top: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-links li {
-                margin: 0.5rem 1rem;
-            }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 36px;
             }
 
-            .hero p {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
+            .page-card-link {
+                width: 100%;
+                margin: 15px 0;
             }
 
-            .section-title {
-                font-size: 1.8rem;
-            }
+
         }
     </style>
 </head>
@@ -381,7 +176,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="research.html">Research</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+
             </ul>
         </nav>
     </header>
@@ -389,81 +184,78 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Live Sustainably, Shop Consciously</h1>
-            <p style="color: #e0f2e9;">Discover eco-friendly products for a greener lifestyle</p>
+            <p>Discover eco-friendly products for a greener lifestyle</p>
             <a href="products.html" class="btn">Shop Now</a>
         </div>
     </section>
 
     <section class="page-description">
         <h2 class="section-title">Website Overview</h2>
+
         <div class="pages-grid">
+            <!-- Card 1 -->
             <a href="home.html" class="page-card-link">
                 <div class="page-card">
                     <div class="card-img">🌱</div>
                     <div class="card-content">
                         <h3>Home Page</h3>
-                        <p>Welcome to EcoMart! This page introduces our mission and provides navigation to all sections
-                            of
-                            our sustainable marketplace.</p>
+                        <p>Welcome to EcoMart! This page introduces our mission and provides navigation to all sections.
+                        </p>
                     </div>
                 </div>
             </a>
+
+            <!-- Card 2 -->
             <a href="products.html" class="page-card-link">
                 <div class="page-card">
                     <div class="card-img">🛍️</div>
                     <div class="card-content">
                         <h3>Products Page</h3>
-                        <p>Browse our collection of sustainable products including bamboo bottles, organic tote bags,
-                            reusable kitchen items, and more with detailed descriptions and pricing.</p>
+                        <p>Browse our collection of sustainable products including bamboo bottles and organic tote bags.
+                        </p>
                     </div>
                 </div>
             </a>
+
+            <!-- Card 3 -->
             <a href="blog.html" class="page-card-link">
                 <div class="page-card">
                     <div class="card-img">📝</div>
                     <div class="card-content">
                         <h3>Blog Page</h3>
-                        <p>Read articles about eco-friendly living, sustainability tips, and how technology has
-                            transformed
-                            both daily life and business operations in the green sector.</p>
+                        <p>Read articles about eco-friendly living, sustainability tips, and technology in the green
+                            sector.</p>
                     </div>
                 </div>
             </a>
+
+            <!-- Card 4 -->
             <a href="research.html" class="page-card-link">
                 <div class="page-card">
                     <div class="card-img">🔍</div>
                     <div class="card-content">
                         <h3>Research Page</h3>
-                        <p>Explore our analysis comparing web technologies used on EcoMart against five reference
-                            websites,
-                            highlighting unique components and sustainability features.</p>
+                        <p>Explore our analysis comparing web technologies used on EcoMart against reference websites.
+                        </p>
                     </div>
                 </div>
             </a>
+
+            <!-- Card 5 -->
             <a href="about.html" class="page-card-link">
                 <div class="page-card">
                     <div class="card-img">👥</div>
                     <div class="card-content">
                         <h3>About Us Page</h3>
-                        <p>Meet our team members with detailed portfolios showcasing technical skills, educational
-                            backgrounds, certifications, and volunteer experiences in sustainability.</p>
+                        <p>Meet our team members with detailed portfolios showcasing technical skills and volunteer
+                            experiences.</p>
                     </div>
                 </div>
             </a>
-            <a href="contact.html" class="page-card-link">
-                <div class="page-card">
-                    <div class="card-img">✉️</div>
-                    <div class="card-content">
-                        <h3>Contact Form</h3>
-                        <p>Reach out to us with questions or feedback using our functional contact form with JavaScript
-                            validation for all fields.</p>
-                    </div>
-                </div>
-            </a>
+
+
         </div>
     </section>
-
-
 
     <footer>
         <div class="footer-content">
@@ -480,7 +272,7 @@
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="research.html">Research</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+
                 </ul>
             </div>
             <div class="footer-section">
@@ -493,60 +285,15 @@
                     <li><a href="#">Eco Cleaning</a></li>
                 </ul>
             </div>
-
         </div>
         <div class="copyright">
             <p>&copy; 2026 EcoMart. All rights reserved. | Designed with ❤️ for a sustainable future</p>
+            <p id="date-display"></p>
         </div>
     </footer>
 
-    <script>
-        // JavaScript for form validation and dynamic content
-        document.addEventListener('DOMContentLoaded', function () {
+    <script src="js/main.js"></script>
 
-
-            // Newsletter form
-            const newsletterForm = document.getElementById('newsletterForm');
-            newsletterForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const email = this.querySelector('input[type="email"]').value.trim();
-
-                if (email) {
-                    alert(`Thank you for subscribing to our newsletter!`);
-                    newsletterForm.reset();
-                }
-            });
-
-            // Dynamic greeting based on time of day
-            const currentTime = new Date();
-            const hour = currentTime.getHours();
-            let greeting = '';
-
-            if (hour < 12) {
-                greeting = 'Good morning!';
-            } else if (hour < 18) {
-                greeting = 'Good afternoon!';
-            } else {
-                greeting = 'Good evening!';
-            }
-
-            // Add greeting to hero section (example of dynamic content)
-            const heroContent = document.querySelector('.hero-content');
-            const greetingElement = document.createElement('div');
-            greetingElement.style.fontSize = ' param() [math]::Round([double].Groups[1].Value * 16) + 'px' ';
-            greetingElement.style.marginTop = '10px';
-            greetingElement.textContent = greeting;
-            heroContent.insertBefore(greetingElement, heroContent.firstChild);
-
-            // Navigation active state
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                if (link.getAttribute('href') === currentPath) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
